@@ -1,0 +1,24 @@
+POST http://localhost:3003/reports
+Content-Type: application/json
+
+{
+    "make": "ford",
+    "model": "mustang",
+    "year": 2025,
+    "mileage": 50000,
+    "lng": 123.456,
+    "lat": 78.901,
+    "price": 80000
+}
+
+### Approve a report
+PATCH http://localhost:3003/reports/1
+content-type: application/json
+
+{
+    "approved": true
+}
+
+### Get estimates
+GET http://localhost:3003/reports?make=ford&model=mustang&mileage=20000&lng=123.456&lat=78.901&year=2020
+content-type: application/json
