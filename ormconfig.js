@@ -22,6 +22,13 @@ switch (process.env.NODE_ENV) {
       synchronize: true,
     });
     break;
+  case 'cli':
+    Object.assign(dbConfig, {
+      type: 'sqlite',
+      database: 'db.sqlite',
+      entities: ['src/**/*.entity.js'],
+    });
+    break;
   case 'production':
     Object.assign(dbConfig, {
       type: 'postgres',

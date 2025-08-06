@@ -13,7 +13,7 @@ POST http://localhost:3003/auth/signup
 content-type: application/json
 
 {
-    "email": "mohitpal12@gmail.com",
+    "email": "mohitpal1112@gmail.com",
     "password": "12345"
 }
 
@@ -22,7 +22,7 @@ POST http://localhost:3003/auth/signin
 content-type: application/json
 
 {
-    "email": "mohitpal12@gmail.com",
+    "email": "mohitpal1112@gmail.com",
     "password": "12345"
 }
 
