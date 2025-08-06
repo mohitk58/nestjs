@@ -59,6 +59,60 @@ $ npm run test:cov
 
 ## Deployment
 
+### Render Deployment
+
+This application is configured for deployment on Render. The deployment includes:
+
+- **Web Service**: NestJS API running on Node.js
+- **PostgreSQL Database**: Managed database service
+
+#### Deployment Steps:
+
+1. **Connect to Render**:
+   - Go to [render.com](https://render.com) and create an account
+   - Connect your GitHub repository
+
+2. **Deploy with render.yaml**:
+   - Render will automatically detect the `render.yaml` file
+   - It will create both the web service and PostgreSQL database
+   - The database connection string will be automatically injected as `DATABASE_URL`
+
+3. **Environment Variables**:
+   - `NODE_ENV`: Set to `production` automatically
+   - `DATABASE_URL`: Automatically provided by Render's PostgreSQL service
+   - `PORT`: Automatically set by Render
+
+4. **Build and Start Commands**:
+   - Build: `npm install && npm run build`
+   - Start: `npm run start:prod`
+
+#### Local Development:
+
+```bash
+# Install dependencies
+npm install
+
+# Development mode
+npm run start:dev
+
+# Production mode (local)
+npm run start:prod
+```
+
+#### Database Migrations:
+
+For production deployment, ensure your database migrations are up to date:
+
+```bash
+# Generate migration (development)
+npm run migration:generate
+
+# Run migrations (production)
+npm run migration:run
+```
+
+### Alternative Deployment Options
+
 When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
 
 If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:

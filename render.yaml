@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: mycv-api
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run start:prod
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: mycv-db
+          property: connectionString
+    healthCheckPath: /
+    autoDeploy: true
+
+databases:
+  - name: mycv-db
+    databaseName: mycv
+    user: mycv_user
+    plan: free

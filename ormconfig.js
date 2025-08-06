@@ -32,6 +32,7 @@ switch (process.env.NODE_ENV) {
         rejectUnauthorized: false,
       },
     });
+    break;
   default:
     throw new Error('Unknown environment');
 }
